@@ -1,8 +1,10 @@
 pipeline {
-    agent{
-        docker{
-            image 'ubuntu'
-        }
+  agent any
+  stages {
+    stage ('Initialize') {
+      steps {
+        echo 'Placeholder.'
+      }
     }
-
+  }
 }
