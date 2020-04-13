@@ -5,11 +5,13 @@ pipeline {
             steps {
                 retry(3) {
                 
-                    sh chmod +x '/flakey-deploy.sh' && './flakey-deploy.sh'
+                    sh 'chmod +x flakey-deploy.sh'
+                    sh './flakey-deploy.sh'
                 }
 
                 timeout(time: 3, unit: 'MINUTES') {
-                    sh chmod +x '/flakey-deploy.sh' && './health-check.sh'
+                    sh 'chmod +x flakey-deploy.sh'
+                    sh './health-check.sh'
                 }
             }
         }
